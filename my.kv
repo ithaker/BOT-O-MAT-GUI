@@ -1,0 +1,49 @@
+
+<MyGrid>:
+
+    name: name
+    rtype: rtype
+
+    GridLayout:
+        cols:1
+        size: root.width - 200, root.height -200
+        pos: 100, 100
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Robot Name: "
+
+            TextInput:
+                id: name
+                multiline:False
+
+            Label:
+                size_hint_y:None
+                text_size: self.width, None
+                height: self.texture_size[1]
+                text: "Robot Type: Unipedal, Bipedal, Quadrupedal, Arachnid, Radial, Aeronautical"
+
+            TextInput:
+                id: rtype
+                multiline:False
+
+        Button:
+            text:"Submit"
+            on_press: 
+                root.btn()
+                root.submit_name()
+            on_release:
+                root.manager.current = "second_page"
+
+<SecondPage>
+    name: "second_page"
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            Label:
+                text: "Chore List:"
+
